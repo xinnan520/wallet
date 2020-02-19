@@ -9,8 +9,8 @@
 }
 
 .msg {
-	width: 30%;
-	height: 18dp;
+	width: 30dp;
+	height: 10dp;
 	pointer-events: none;
 }
 
