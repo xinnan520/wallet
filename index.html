@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="imgs/favicon.ico" rel="shortcut icon">
+		<title>xinnan's blog</title>
+		<script type="text/javascript" src="js/bmob-min.js"></script>
+		<script type="text/javascript" src="js/bomb-init.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/query.js"></script>
+
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/gotoTop.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<style type="text/css">
+			.body {
+				background: url(imgs/bg_wall.jpg) repeat;
+			}
+		</style>
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+		<script type="text/javascript" src="js/query.js"></script>
+	</head>
+	<body class="body" onload="find_incomeRecord()">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a href="javascript:void(0)" onclick="location.reload()" class="navbar-brand">Reload</a>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div id="blog_list">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="row">
+									<div class="col-lg-6 col-md-3 col-sm-5 col-xs-6">
+										<h7>
+											<span class="label label-info">收入</span>
+										</h7>
+									</div>
+									<!-- 信息提示 -->
+									<div class="msg" id='msg'>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 pull-right">
+										<h7>
+											<a href="html/insert.html">Add</a>
+										</h7>
+									</div>
+								</div>
+							</div>
+							<div class="panel-body">
+								<h4></h4>
+								<table class="table table-bordered">
+									<tr>
+										<th>time</th>
+										<th>money</th>
+										<th>type</th>
+										<th>updatetime</th>
+										<th>option</th>
+									</tr>
+									<tr id="content">
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="bs-docs-footer">
+			<div class="container">
+
+				<p><a id="returnTop">返回顶部</a></p>
+
+				<p><a href="{:U('Admin/Login/showLoginPage')}">admin<a /></p>
+
+				<p>Designed and built by xinnan.</p>
+
+				<p><a href="http://www.miitbeian.gov.cn">苏ICP备17070354号</a></p>
+
+			</div>
+		</footer>
+
+		<script type="text/javascript">
+			$('.form_date').datetimepicker({
+				language: 'zh-CN',
+				weekStart: 1,
+				todayBtn: 1,
+				autoclose: 1,
+				todayHighlight: 1,
+				startView: 2,
+				forceParse: 0,
+				showMeridian: 1
+			});
+		</script>
+	</body>
+</html>

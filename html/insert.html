@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="imgs/favicon.ico" rel="shortcut icon">
+		<title>xinnan's blog</title>
+		<script type="text/javascript" src="../js/bmob-min.js"></script>
+		<script type="text/javascript" src="../js/bomb-init.js"></script>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/query.js"></script>
+
+		<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/gotoTop.css" />
+		<link rel="stylesheet" href="../css/index.css" />
+		<style type="text/css">
+			.body {
+				background: url(../imgs/bg_wall.jpg) repeat;
+			}
+		</style>
+		
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+		<script type="text/javascript" src="../js/query.js"></script>
+	</head>
+	<body class="body" onload="find_incomeRecord()">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a href="javascript:void(0)" onclick="location.reload()" class="navbar-brand">Reload</a>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div id="blog_list">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="row">
+									<div class="col-lg-6 col-md-3 col-sm-5 col-xs-6">
+										<h7>
+											<span class="label label-info">添加收入</span>
+										</h7>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 pull-right">
+										<h7>
+											<a href="#" onClick="javascript :history.back(-1);">Cancel</a>
+										</h7>
+									</div>
+								</div>
+							</div>
+							<div class="panel-body">
+								<h4></h4>
+								<form class="form-horizontal" action="#">
+									<div class="form-group">
+										<label for="inputType" class="col-sm-2 control-label">type</label>
+										<div class="col-sm-10">
+											<select id="inputType" class="form-control">
+												<option>工资</option>
+												<option>其他</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputOthertype" class="col-sm-2 control-label">other</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="inputOthertype" placeholder="">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputDate" class="col-sm-2 control-label">Date</label>
+										<div class="col-sm-10">
+											<div class="input-group date form_date" data-date="" data-date-format="yyyy-mm-dd HH:ii:ss" data-link-field="inputDate"
+											 data-link-format="yyyy-mm-dd HH:ii:ss">
+												<input id="inputDate" class="form-control" size="16" type="text" value="" readonly>
+												<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputNumber" class="col-sm-2 control-label">money</label>
+										<div class="col-sm-10">
+											<div class="input-group">
+												<div class="input-group-addon">￥</div>
+												<input id="inputNumber" type="number" class="form-control" id="exampleInputAmount" placeholder="3406.87">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-offset-5 col-sm-10">
+											<button type="submit" class="btn bg-primary col-sm-4" onclick="insert()">OK</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="bs-docs-footer">
+			<div class="container">
+
+				<p><a id="returnTop">返回顶部</a></p>
+
+				<p><a href="{:U('Admin/Login/showLoginPage')}">admin<a /></p>
+
+				<p>Designed and built by xinnan.</p>
+
+				<p><a href="http://www.miitbeian.gov.cn">苏ICP备17070354号</a></p>
+
+			</div>
+		</footer>
+
+		<script type="text/javascript">
+			$('.form_date').datetimepicker({
+				language: 'zh-CN',
+				weekStart: 1,
+				todayBtn: 1,
+				autoclose: 1,
+				todayHighlight: 1,
+				startView: 2,
+				forceParse: 0,
+				showMeridian: 1
+			});
+		</script>
+	</body>
+</html>
