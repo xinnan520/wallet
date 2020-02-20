@@ -2,14 +2,14 @@
 
 function insert() {
 	//添加一行数据
-	var IncomeRecord = Bmob.Object.extend("tb_incomeRecord");
-	var incomeRecord = new IncomeRecord();
+	var moneyRecord = Bmob.Object.extend("tb_money");
+	var query = new Bmob.Query(moneyRecord);
 	incomeRecord.save({
-		incomeType: $("#inputType").val(),
-		incomeOthertype: $("#inputOthertype").val(),
-		incomeDate: $("#inputDate").val(),
-		updateTime: new Date(),
-		incomeNum: Number($("#inputNumber").val())
+		time: new Date(),
+		zhifubao: Number($("#inputzhifubao").val()),
+		wechatwallet: Number($("#inputwechat").val()),
+		pinanbank: Number($("#inputPinanBank").val()),
+		chinabank: Number($("#inputChinaBank").val())
 	}, {
 		success: function(object) {
 			toastr.info('添加成功');
@@ -41,7 +41,7 @@ function insert() {
 // 	});
 // }
 
-function delete_incomeRecord(objectId) {
+function delete_moneyRecord(objectId) {
 	//删除一行数据
 	var moneyRecord = Bmob.Object.extend("tb_money");
 	var query = new Bmob.Query(moneyRecord);
@@ -87,7 +87,7 @@ function find_money() {
 						"<td>" + results[i].get("wechatwallet") + "</td>" +
 						"<td>" + sum + "</td>" +
 						"<td><button type='button' class='btn btn-warning btn-xs' onclick='alter()'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></button> " +
-						"<button type='button' class='btn btn-danger btn-xs' onclick='delete_incomeRecord(" + results[i].get("objectId") + 
+						"<button type='button' class='btn btn-danger btn-xs' onclick='delete_moneyRecord(" + results[i].get("objectId") + 
 						")'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></td>");
 				} else {
 					$("#content").after("<tr><td>" + results[i].get("time") + "</td>" +
@@ -97,7 +97,7 @@ function find_money() {
 						"<td>" + results[i].get("wechatwallet") + "</td>" +
 						"<td>" + sum + "</td>" +
 						"<td><button type='button' class='btn btn-warning btn-xs' onclick='alter()'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></button> " +
-						"<button type='button' class='btn btn-danger btn-xs' onclick='delete_incomeRecord(" + results[i].get("objectId") + 
+						"<button type='button' class='btn btn-danger btn-xs' onclick='delete_moneyRecord(" + results[i].get("objectId") + 
 						")'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></td></tr>");
 				}
 
