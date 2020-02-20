@@ -86,16 +86,16 @@ function find_incomeRecord() {
 						"<td>" + results[i].get("incomeNum") + "</td>" +
 						"<td>" + type + "</td>" +
 						"<td>" + results[i].get("updateTime") + "</td>" +
-						"<td><button type='button' class='btn btn-warning btn-xs' onclick='alter()'>alter</button> " +
-						"<button type='button' class='btn btn-danger btn-xs' onclick='delete_incomeRecord()'>delete</button></td>");
+						"<td><button type='button' class='btn btn-warning btn-xs' onclick='alter()'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></button> " +
+						"<button type='button' class='btn btn-danger btn-xs' onclick='delete_incomeRecord()'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></td>");
 				} else {
 					$("#content").after("<tr><td>" + results[i].get("incomeDate") + "</td>" +
 						"<td>" + results[i].get("incomeNum") + "</td>" +
 						"<td>" + type + "</td>" +
 						"<td>" + results[i].get("updateTime") + "</td>" +
-						"<td><button type='button' class='btn btn-warning btn-xs' onclick='alter()'>alter</button> " +
+						"<td><button type='button' class='btn btn-warning btn-xs' onclick='alter()'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></button> " +
 						"<button type='button' class='btn btn-danger btn-xs' onclick='delete_incomeRecord(" + results[i].get(
-							"objectId") + ")'>delete</button></td></tr>");
+							"objectId") + ")'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></td></tr>");
 				}
 
 			}
