@@ -43,8 +43,8 @@ function insert() {
 
 function delete_incomeRecord(objectId) {
 	//删除一行数据
-	var incomeRecord = Bmob.Object.extend("tb_incomeRecord");
-	var query = new Bmob.Query(incomeRecord);
+	var moneyRecord = Bmob.Object.extend("tb_money");
+	var query = new Bmob.Query(moneyRecord);
 	query.get(objectId, {
 		success: function(object) {
 			// The object was retrieved successfully.
@@ -64,10 +64,10 @@ function delete_incomeRecord(objectId) {
 	});
 }
 
-function find_incomeRecord() {
-	//获取一行数据
-	var incomeRecord = Bmob.Object.extend("tb_incomeRecord");
-	var query = new Bmob.Query(incomeRecord);
+function find_money() {
+	//获取数据
+	var moneyRecord = Bmob.Object.extend("tb_money");
+	var query = new Bmob.Query(moneyRecord);
 	query.find({
 		success: function(results) {
 			// The object was retrieved successfully.
@@ -77,26 +77,28 @@ function find_incomeRecord() {
 			var html = "";
 			//results.sort(function(a, b){return a.incomeDate-b.incomeDate});
 			for (var i = 0; i < results.length; i++) {
-				var type = "";
-				if (results[i].get("incomeType") == "其他") {
-					type = results[i].get("incomeOthertype");
-				} else {
-					type = results[i].get("incomeType");
-				}
+				var sum = results[i].get("chinabank") + results[i].get("pinanbank")
+				+ results[i].get("zhifubao") + results[i].get("wechatwallet")
 				if (i == 0) {
-					$("#content").append("<td>" + results[i].get("incomeDate") + "</td>" +
-						"<td>" + results[i].get("incomeNum") + "</td>" +
-						"<td>" + type + "</td>" +
-						"<td>" + results[i].get("updateTime") + "</td>" +
+					$("#content").append("<td>" + results[i].get("time") + "</td>" +
+						"<td>" + results[i].get("chinabank") + "</td>" +
+						"<td>" + results[i].get("pinanbank") + "</td>" +
+						"<td>" + results[i].get("zhifubao") + "</td>" +
+						"<td>" + results[i].get("wechatwallet") + "</td>" +
+						"<td>" + sum + "</td>" +
 						"<td><button type='button' class='btn btn-warning btn-xs' onclick='alter()'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></button> " +
-						"<button type='button' class='btn btn-danger btn-xs' onclick='delete_incomeRecord()'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></td>");
+						"<button type='button' class='btn btn-danger btn-xs' onclick='delete_incomeRecord(" + results[i].get("objectId") + 
+						")'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></td>");
 				} else {
-					$("#content").after("<tr><td>" + results[i].get("incomeDate") + "</td>" +
-						"<td>" + results[i].get("incomeNum") + "</td>" +
-						"<td>" + type + "</td>" +
-						"<td>" + results[i].get("updateTime") + "</td>" +
+					$("#content").after("<tr><td>" + results[i].get("time") + "</td>" +
+						"<td>" + results[i].get("chinabank") + "</td>" +
+						"<td>" + results[i].get("pinanbank") + "</td>" +
+						"<td>" + results[i].get("zhifubao") + "</td>" +
+						"<td>" + results[i].get("wechatwallet") + "</td>" +
+						"<td>" + sum + "</td>" +
 						"<td><button type='button' class='btn btn-warning btn-xs' onclick='alter()'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></button> " +
-						"<button type='button' class='btn btn-danger btn-xs' onclick='delete_incomeRecord(" + results[i].get("objectId") + ")'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></td></tr>");
+						"<button type='button' class='btn btn-danger btn-xs' onclick='delete_incomeRecord(" + results[i].get("objectId") + 
+						")'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></td></tr>");
 				}
 
 			}
