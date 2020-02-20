@@ -10,11 +10,11 @@ function insert() {
 		incomeNum: Number($("#inputNumber").val())
 	}, {
 		success: function(object) {
-			alert("SUCCESS");
+			toastr.info('添加成功');
 			window.location.href = 'display.html';
 		},
 		error: function(model, error) {
-			alert("ERROR");
+			toastr.error('添加失败');
 		}
 	});
 }
@@ -48,16 +48,16 @@ function delete_incomeRecord(objectId) {
 			// The object was retrieved successfully.
 			object.destroy({
 				success: function(deleteObject) {
-					alert("delete success");
+					toastr.info('删除成功');
 					location.reload();
 				},
 				error: function(GameScoretest, error) {
-					alert("delete fail");
+					toastr.error('删除失败');
 				}
 			});
 		},
 		error: function(object, error) {
-			alert("query object fail");
+			toastr.error('删除失败');
 		}
 	});
 }
@@ -68,7 +68,6 @@ function find_incomeRecord() {
 	var query = new Bmob.Query(incomeRecord);
 	query.find({
 		success: function(results) {
-			$
 			// The object was retrieved successfully.
 			//alert("共查询到 " + results.length + " 条记录");
 			//alert(results[0].get("objectId"));
@@ -100,12 +99,10 @@ function find_incomeRecord() {
 				}
 
 			}
-			var htmlStr = '<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert"></button>success</div>'
-			$("#msg").append(htmlStr)
-			removeHtml($("#msg"))
+			toastr.info('加载成功');
 		},
 		error: function(object, error) {
-			alert("query object fail");
+			toastr.error('加载失败');
 		}
 	});
 }
@@ -113,7 +110,7 @@ function find_incomeRecord() {
 //根据dom删除元素
 function removeHtml(dom) {
 	setTimeout(function() {
-		dom.slideUp(300, function() {
+		dom.slideUp(500, function() {
 			dom.remove();
 		});
 	}, 1 * 1000); //延迟5000
